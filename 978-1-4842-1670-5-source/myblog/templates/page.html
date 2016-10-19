@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load cms_tags sekizai_tags %}
+
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content %}
+<div class="row">
+
+	<div class="col-sm-8 blog-main">
+		{% block page-inner %}
+		  {% placeholder "content" %}      
+    {% endblock page-inner %}
+	</div>
+    
+	<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+    <div class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>My name is Big Nige and I built this blog all by myself.</p>
+    </div>
+    <div class="sidebar-module">
+    <h4>Latest Posts</h4>
+    {% static_placeholder "posts" %}
+    </div>
+    <div class="sidebar-module">
+    <h4>User</h4>
+    <ol class="list-unstyled">
+      <li><a href="?edit">Log In</a></li>
+    </ol>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+		
+
+

@@ -1,0 +1,11 @@
+{% load thumbnail %}
+
+{% if link %}<a href="{{ link }}">{% endif %}
+{% if placeholder == "content" %}
+    <img src="{% thumbnail picture.image 300x600 %}"{% if picture.alt %} alt="{{ picture.alt }}"{% endif %} />
+{% else %}
+    {% if placeholder == "teaser" %}
+        <img src="{% thumbnail picture.image 150x150 %}"{% if picture.alt %} alt="{{ picture.alt }}"{% endif %} />
+    {% endif %}
+{% endif %}
+{% if link %}</a>{% endif %}

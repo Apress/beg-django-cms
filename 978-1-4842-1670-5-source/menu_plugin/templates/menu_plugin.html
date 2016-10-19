@@ -1,0 +1,14 @@
+
+<ol class="list-unstyled">
+    {% for anchortext, link in blogposts %}
+      {% with "/"|add:link|add:"/" as full_url %}
+        {% if instance.max_entries == 0 %}
+          <li><a href="{{ full_url }}">{{ anchortext }}</a></li>        
+        {% elif forloop.counter <= instance.max_entries %}          
+          <li><a href="{{ full_url }}">{{ anchortext }}</a></li>
+        {% endif %}
+      {% endwith %}
+    {% empty %}
+      <li>There are no published blog posts</li>
+    {% endfor %}  
+</ol>

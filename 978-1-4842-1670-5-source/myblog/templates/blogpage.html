@@ -1,0 +1,19 @@
+{% extends "page.html" %}
+{% load cms_tags %}
+{% load sekizai_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block page-inner %}
+<div class="blog-post">
+  <h2 class="blog-post-title">{% page_attribute "page_title" %}</h2>
+			<p class="blog-post-meta">Published {{ request.current_page.creation_date|date:'d M Y' }} by <a href="#">{{ request.current_page.created_by }}</a></p>
+  
+    {% placeholder "content" %}  
+    {% static_placeholder "social" %}
+    
+</div>
+{% endblock page-inner %}
+	
+
+
